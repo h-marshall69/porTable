@@ -34,9 +34,13 @@ class RestaurantController extends Controller
     private function getAuthRestaurant(Request $request)
     {
         // Get restaurant model
-        $restaurant = restaurantMigrasi::where('user_id', activeUser()->id)->get()[0];
+        $restaurants = restaurantMigrasi::where('user_id', activeUser()->id)->get();
 
-        return $restaurant;
+        if ($restaurants->isEmpty()) {
+            return null; // o manejar el error como prefieras
+        }
+
+        return $restaurants[0];
     }
 
     /**
@@ -81,7 +85,7 @@ class RestaurantController extends Controller
         $reservation = reservationMigrasi::find($request->id);
         $restaurant = restaurantMigrasi::find($reservation->restaurant_id);
         $user = userMigrasi::find($reservation->user_id);
-        
+
         postMigrasi::create([
             'title'=> 'Reservation Acceptance',
             'caption' => "Hello dear mr/mrs $user->full_name thankyou for your reservation we wellcome you to come on $reservation->reservation_date_time",

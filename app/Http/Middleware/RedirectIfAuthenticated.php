@@ -23,18 +23,34 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                if(auth()->user()->role->name == 'Customer'){
-                    return redirect()->route('customer_home');
+                $user = Auth::guard($guard)->user();
+
+                // Verificar si el usuario tiene rol
+                if (!$user->role) {
+                    Auth::logout();
+                    return redirect()->route('index')->withErrors([
+                        'auth_error' => 'Tu cuenta no tiene rol asignado'
+                    ]);
                 }
-                else if(auth()->user()->role->name == 'Admin'){
-                    return redirect()->route('admin_dashboard');
-                }
-                else if(auth()->user()->role->name == 'Restaurant'){
-                    return redirect()->route('restaurant_home');
-                }
+
+                // Redirección segura
+                return match($user->role->name) {
+                    'Customer' => redirect()->intended(route('customer_home')),
+                    'Admin' => redirect()->intended(route('admin_dashboard')),
+                    'Restaurant' => redirect()->intended(route('restaurant_home')),
+                    default => $this->handleInvalidRole($user)
+                };
             }
         }
 
         return $next($request);
+    }
+
+    protected function handleInvalidRole($user): Response
+    {
+        Auth::logout();
+        return redirect()->route('index')->withErrors([
+            'auth_error' => 'Rol no reconocido: '.$user->role->name
+        ]);
     }
 }

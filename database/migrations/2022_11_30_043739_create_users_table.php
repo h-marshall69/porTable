@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("username",50)->default("");
             $table->string("password",255)->default("");
             $table->string("full_name",50)->default("");
-            $table->date("date_of_birth",6)->default("2022-12-12");
+            $table->date("date_of_birth")->default("2022-12-12");
             $table->string("address",255)->default("");
             $table->string("email")->default("");
             $table->string("phone",50)->default("");

@@ -2,363 +2,126 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
-use App\Models\Migrasi\transactionMigrasi;
+use App\Models\Migrasi\userMigrasi;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
+        // 1. Seed géneros
         DB::table('genders')->insert([
-            ['name'=>"Laki"],
-            ['name'=>"Perempuan"]
+            ['name' => "Laki"],
+            ['name' => "Perempuan"]
         ]);
+
+        // 2. Seed roles
         DB::table('roles')->insert([
-            ['name'=>"Admin"],
-            ['name'=>"Customer"],
-            ['name'=>"Restaurant"]
+            ['name' => "Admin"],
+            ['name' => "Customer"],
+            ['name' => "Restaurant"]
         ]);
 
-        DB::table('users')->insert([
-            //RESTAURANT
-            ['username'=>"user1",
-            'password'=>Hash::make(123),
-            'full_name'=>"Albertus Marco",
-            'date_of_birth'=>"2002-10-03",
-            'address'=>"Jalan Sikatan No. 45",
-            'email'=> "albertus@gmail.com",
-            'phone'=>"+6281234800976",
-            'gender'=> 1,
-            'balance'=> 12345,
-            'role_id'=> 3,
-            'verified_at'=>now(),
-            'created_at'=> now(),
-            'updated_at'=> now()],
+        // 3. Seed usuarios usando el modelo userMigrasi
+        $users = [
+            // Administradores (role_id 1)
+            [
+                'username' => "admin1",
+                'password' => Hash::make('Admin123!'),
+                'full_name' => "Administrator 1",
+                'date_of_birth' => "1980-01-01",
+                'address' => "Admin Address 123",
+                'email' => "admin1@example.com",
+                'phone' => "+628123456789",
+                'gender' => 1,
+                'balance' => 1000000,
+                'role_id' => 1,
+                'verified_at' => now()
+            ],
 
-            ['username'=>"user2",
-            'password'=>Hash::make(123),
-            'full_name'=>"Anton Chris",
-            'date_of_birth'=>"2002-11-02",
-            'address'=>"Jalan Jalan No. 45",
-            'email'=> "anton@gmail.com",
-            'phone'=>"+6823456718271",
-            'gender'=> 1,
-            'balance'=> 532623,
-            'role_id'=> 3,
-            'verified_at'=>now(),
-            'created_at'=> now(),
-            'updated_at'=> now()],
+            // Restaurantes (role_id 3)
+            [
+                'username' => "resto1",
+                'password' => Hash::make('Resto123!'),
+                'full_name' => "Restaurant Owner 1",
+                'date_of_birth' => "1985-05-15",
+                'address' => "Restaurant Street 1",
+                'email' => "resto1@example.com",
+                'phone' => "+628987654321",
+                'gender' => 1,
+                'balance' => 500000,
+                'role_id' => 3,
+                'verified_at' => now()
+            ],
 
-            ['username'=>"user3",
-            'password'=>Hash::make(123),
-            'full_name'=>"Ian William",
-            'date_of_birth'=>"2002-04-02",
-            'address'=>"Sebelah Sana No. 45",
-            'email'=> "ian@gmail.com",
-            'phone'=>"+6289123718731",
-            'gender'=> 1,
-            'balance'=> 123141,
-            'role_id'=> 3,
-            'verified_at'=>now(),
-            'created_at'=> now(),
-            'updated_at'=> now()],
+            // Clientes (role_id 2)
+            [
+                'username' => "customer1",
+                'password' => Hash::make('Customer123!'),
+                'full_name' => "Regular Customer",
+                'date_of_birth' => "1995-10-20",
+                'address' => "Customer Lane 456",
+                'email' => "customer1@example.com",
+                'phone' => "+628111222333",
+                'gender' => 2,
+                'balance' => 100000,
+                'role_id' => 2,
+                'verified_at' => now()
+            ]
+        ];
 
-            ['username'=>"user4",
-            'password'=>Hash::make(123),
-            'full_name'=>"Marco Melvin",
-            'date_of_birth'=>"2002-10-22",
-            'address'=>"Jalan Bukit Sikatan No. 11",
-            'email'=> "marco@gmail.com",
-            'phone'=>"+628128391839",
-            'gender'=> 2,
-            'balance'=> 123512512,
-            'role_id'=> 2,
-            'verified_at'=>now(),
-            'created_at'=> now(),
-            'updated_at'=> now()],
+        foreach ($users as $userData) {
+            userMigrasi::create($userData);
+        }
 
-            ['username'=>"user5",
-            'password'=>Hash::make(123),
-            'full_name'=>"Sachio Christopher",
-            'date_of_birth'=>"2002-03-02",
-            'address'=>"Jalan Kalijudan No. 1",
-            'email'=> "sachio@gmail.com",
-            'phone'=>"+62812346800976",
-            'gender'=> 1,
-            'balance'=> 1341414,
-            'role_id'=> 2,
-            'verified_at'=>now(),
-            'created_at'=> now(),
-            'updated_at'=> now()],
+        // 4. Seed restaurantes
+        $restaurants = [
+            [
+                'full_name' => "Ottis Halvorson",
+                'address' => "46708 Doris Shore, East Amarimouth",
+                'phone' => "351-870-5610",
+                'user_id' => 2, // Asegúrate que este ID corresponda a un usuario restaurante
+                'col' => 5,
+                'row' => 3,
+                'average_rating' => 4.5,
+                'start_time' => 10,
+                'shifts' => 9,
+                'price' => 20000,
+                'description' => "Magnam cupiditate odit labore voluptates dolore temporibus.",
+                'verified_at' => now()
+            ],
+            // ... otros restaurantes
+        ];
 
-            ['username'=>"user6",
-            'password'=>Hash::make(123),
-            'full_name'=>"Timothy JANCOK",
-            'date_of_birth'=>"2002-07-01",
-            'address'=>"Jalan Darmo Indah No. 2",
-            'email'=> "timot@gmail.com",
-            'phone'=>"+6281231414",
-            'gender'=> 2,
-            'balance'=> 1231,
-            'role_id'=> 2,
-            'verified_at'=>now(),
-            'created_at'=> now(),
-            'updated_at'=> now()],
+        DB::table('restaurants')->insert($restaurants);
 
-            ['username'=>"user7",
-            'password'=>Hash::make(123),
-            'full_name'=>"Alicia Kosman",
-            'date_of_birth'=>"2002-08-02",
-            'address'=>"Jalan Dekat Situ No. 2",
-            'email'=> "alis@gmail.com",
-            'phone'=>"+6283151421",
-            'gender'=> 1,
-            'balance'=> 1123231,
-            'role_id'=> 2,
-            'verified_at'=>now(),
-            'created_at'=> now(),
-            'updated_at'=> now()],
+        // 5. Seed mesas (optimizado)
+        $tables = [];
+        $restaurantIds = DB::table('restaurants')->pluck('id');
 
-            ['username'=>"user8",
-            'password'=>Hash::make(123),
-            'full_name'=>"Gabriella Sanchia",
-            'date_of_birth'=>"2002-12-11",
-            'address'=>"Di Hatinya Melvin No. 1",
-            'email'=> "gabriella@gmail.com",
-            'phone'=>"+62812314141",
-            'gender'=> 2,
-            'balance'=> 123141,
-            'role_id'=> 2,
-            'verified_at'=>now(),
-            'created_at'=> now(),
-            'updated_at'=> now()],
+        foreach ($restaurantIds as $restaurantId) {
+            for ($i = 1; $i <= 20; $i++) {
+                $tables[] = [
+                    'restaurant_id' => $restaurantId,
+                    'seats' => $i,
+                    'status' => 1,
+                    'created_at' => now(),
+                    'updated_at' => now()
+                ];
+            }
+        }
 
-            ['username'=>"user9",
-            'password'=>Hash::make(123),
-            'full_name'=>"Jason Jonathan Jago Banget Sih Astep Ini",
-            'date_of_birth'=>"2002-03-30",
-            'address'=>"Jalan Jemursari Selatan No. 45",
-            'email'=> "jason@gmail.com",
-            'phone'=>"+628112314421",
-            'gender'=> 1,
-            'balance'=> 324515,
-            'role_id'=> 2,
-            'verified_at'=>now(),
-            'created_at'=> now(),
-            'updated_at'=> now()],
+        DB::table('tables')->insert($tables);
 
-            ['username'=>"admin",
-            'password'=>Hash::make('admin'),
-            'full_name'=>"Admin Admin",
-            'date_of_birth'=>"2002-10-10",
-            'address'=>"Jalan Admin Admin No. 45",
-            'email'=> "admin@gmail.com",
-            'phone'=>"+62812431511",
-            'gender'=> 1,
-            'balance'=> 111111,
-            'role_id'=> 1,
-            'verified_at'=>now(),
-            'created_at'=> now(),
-            'updated_at'=> now()],
-        ]);
-
-        DB::table('restaurants')->insert([
-            ['full_name'=>"Ottis Halvorson",
-            'address'=>"46708 Doris Shore East Amarimouth, WV 06848-4154",
-            'phone'=>"351-870-5610",
-            'user_id'=>2,
-            'col'=>5,
-            'row'=>3,
-            'average_rating'=>4.5,
-            'start_time'=>10,
-            'shifts'=>9,
-            'price'=>20000,
-            'description'=>"Magnam cupiditate odit labore voluptates dolore temporibus nam voluptas qui et quos temporibus quos et debitis unde atque ut sed quam molestiae ut.",
-            'verified_at'=>now(),
-            'created_at'=>now(),
-            'updated_at'=>now()],
-
-            ['full_name'=>"Raphael Nolan",
-            'address'=>"8295 Bartell Springs
-            North Dawntown, AK 62311",
-            'phone'=>"(614) 389-4923",
-            'user_id'=>1,
-            'col'=>5,
-            'row'=>4,
-            'average_rating'=>4.7,
-            'start_time'=>9,
-            'shifts'=>8,
-            'price'=>20000,
-            'description'=>"Totam quia exercitationem voluptates blanditiis et non quibusdam omnis est commodi eum quia a omnis deserunt molestias amet illum officia excepturi voluptatibus impedit.",
-            'verified_at'=>now(),
-            'created_at'=>now(),
-            'updated_at'=>now()],
-
-            ['full_name'=>"Kaya Stokes",
-            'address'=>"844 Bartoletti Gateway
-            New Zakary, AR 90186",
-            'phone'=>"385.428.5862",
-            'user_id'=>3,
-            'col'=>2,
-            'row'=>3,
-            'average_rating'=>4.8,
-            'start_time'=>10,
-            'shifts'=>10,
-            'price'=>20000,
-            'description'=>"Enim a explicabo assumenda autem neque magnam ipsa veritatis itaque quos error est totam harum sunt error nulla.",
-            'verified_at'=>now(),
-            'created_at'=>now(),
-            'updated_at'=>now()],
-        ]);
-        DB::table('tables')->insert([
-            ['restaurant_id'=>1,
-            'seats'=>1,
-            'status'=>1],
-            ['restaurant_id'=>1,
-            'seats'=>2,
-            'status'=>1],
-            ['restaurant_id'=>1,
-            'seats'=>3,
-            'status'=>1],
-            ['restaurant_id'=>1,
-            'seats'=>4,
-            'status'=>1],
-            ['restaurant_id'=>1,
-            'seats'=>5,
-            'status'=>1],
-            ['restaurant_id'=>1,
-            'seats'=>6,
-            'status'=>1],
-            ['restaurant_id'=>1,
-            'seats'=>7,
-            'status'=>1],
-            ['restaurant_id'=>1,
-            'seats'=>8,
-            'status'=>1],
-            ['restaurant_id'=>1,
-            'seats'=>9,
-            'status'=>1],
-            ['restaurant_id'=>1,
-            'seats'=>10,
-            'status'=>1],
-            ['restaurant_id'=>1,
-            'seats'=>11,
-            'status'=>1],
-            ['restaurant_id'=>1,
-            'seats'=>12,
-            'status'=>1],
-            ['restaurant_id'=>1,
-            'seats'=>13,
-            'status'=>1],
-            ['restaurant_id'=>1,
-            'seats'=>14,
-            'status'=>1],
-            ['restaurant_id'=>1,
-            'seats'=>15,
-            'status'=>1],
-
-            ['restaurant_id'=>2,
-            'seats'=>1,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>2,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>3,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>4,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>5,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>6,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>7,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>8,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>9,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>10,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>11,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>12,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>13,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>14,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>15,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>16,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>17,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>18,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>19,
-            'status'=>1],
-            ['restaurant_id'=>2,
-            'seats'=>20,
-            'status'=>1],
-
-            ['restaurant_id'=>3,
-            'seats'=>1,
-            'status'=>1],
-            ['restaurant_id'=>3,
-            'seats'=>2,
-            'status'=>1],
-            ['restaurant_id'=>3,
-            'seats'=>3,
-            'status'=>1],
-            ['restaurant_id'=>3,
-            'seats'=>4,
-            'status'=>1],
-            ['restaurant_id'=>3,
-            'seats'=>5,
-            'status'=>1],
-            ['restaurant_id'=>3,
-            'seats'=>6,
-            'status'=>1],
-
-        ]);
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
+        // 6. Seed datos adicionales con factories
         \App\Models\Migrasi\favouriteMigrasi::factory(3)->create();
         \App\Models\Migrasi\reservationMigrasi::factory(20)->create();
         \App\Models\Migrasi\reviewMigrasi::factory(50)->create();
         \App\Models\Migrasi\postMigrasi::factory(5)->create();
-        for ($i=0; $i <20 ; $i++) {
+
+        for ($i = 0; $i < 20; $i++) {
             \App\Models\Migrasi\transactionMigrasi::factory()->create();
         }
     }

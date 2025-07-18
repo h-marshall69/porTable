@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
+if (!function_exists('activeUser')) {
+    require_once app_path('Helpers/AuthHelper.php');
+}
+
 class IndexController extends Controller
 {
     public function masterIndex(Request $request)
