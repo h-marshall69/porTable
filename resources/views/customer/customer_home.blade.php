@@ -1,17 +1,17 @@
 {{--
-    LAYOUT YIELDS :
+    RENDERS DEL LAYOUT:
 
-    A. HTML HEAD :
-    1.  pagename : nama halaman ini (you dont say)
-    2.  custom_css : jika butuh import custom css yang dibuat sendiri
-    3.  dependencies : jika butuh import dependencies khusus page ini cth bootstrap, jquery
+    A. CABECERA HTML :
+    1.  pagename : nombre de esta página (no me digas)
+    2.  custom_css : si se necesita importar CSS personalizado
+    3.  dependencies : si se necesitan dependencias específicas para esta página, ej. bootstrap, jquery
 
-    B. HTML BODY :
-    4.  header : untuk konten" header cth navbar, alert, error dsb
-    5.  content : konten" utama halaman ini
+    B. CUERPO HTML :
+    4.  header : para contenido del encabezado como navbar, alertas, errores, etc.
+    5.  content : contenido principal de esta página
     6.  footer
 
-    C. OUTSIDE HTML BODY :
+    C. FUERA DEL CUERPO HTML :
     7.  js_script
 
 --}}
@@ -69,8 +69,9 @@
 
 @section('content')
     <div class="container">
-        {{-- NAVBAR --}}
+        {{-- BARRA DE NAVEGACIÓN --}}
         @include('customer.partial.navbar')
+
         {{-- JUMBOTRON --}}
         <div class="jumbotron banner row m-0 w-100">
             <div class="col-md-12 col-lg-6 d-flex justify-content-end align-items-center d-lg-none ">
@@ -79,23 +80,22 @@
             <div class="col-md-12 col-lg-6 d-flex justify-content-end align-items-center" >
                 <div class="left_content">
 
-                    {{-- BANNER TEXT --}}
+                    {{-- TEXTO DEL BANNER --}}
                     <div class="banner_text">
-                        <p class="title text-end" style="font-family: helvetica_bold">A New Way</p>
-                        <p class="title text-end" style="font-family: helvetica_bold;margin-top:-20px;">To Order a Table</p>
+                        <p class="title text-end" style="font-family: helvetica_bold">Una nueva forma</p>
+                        <p class="title text-end" style="font-family: helvetica_bold;margin-top:-20px;">de reservar una mesa</p>
                         <p class="subtitle text-end" style="font-family: helvetica_regular;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dignissimos nobis ad sequi aliquid impedit iusto officia ea enim? Cum eius dolore labore tempore assumenda, quia quas cupiditate? Officia, voluptatum.</p>
                     </div>
 
-                    {{-- BUTTON --}}
+                    {{-- BOTONES --}}
                     <div class="d-flex justify-content-end mt-4">
                         <a href="{{route('customer_search')}}">
-                            <div class="btn me-2" style="background-color: #ed3b27;color:white;">Explore Restaurant</div>
+                            <div class="btn me-2" style="background-color: #ed3b27;color:white;">Explorar Restaurantes</div>
                         </a>
                         <a href="{{route('customer_favorite')}}">
-                            <div class="btn" style="border:1px solid #ed3b27; color: #ed3b27;">Favorite</div>
+                            <div class="btn" style="border:1px solid #ed3b27; color: #ed3b27;">Favoritos</div>
                         </a>
                     </div>
-
 
                 </div>
             </div>
@@ -103,21 +103,22 @@
                 <img src="{{asset('storage/images/customer/banner1.png')}}" width="100%" alt="">
             </div>
         </div>
-        {{-- EASY ACCESS --}}
+
+        {{-- ACCESO RÁPIDO --}}
         <div class="easy-access mt-3 px-5 py-4 rounded-3 bg-dark">
-            <h3 class="text-light" style="font-family: helvetica_bold">Book a Table</h3>
+            <h3 class="text-light" style="font-family: helvetica_bold">Reservar una mesa</h3>
 
             <form class="mt-3" method="POST" action="/customer/checkAvailability">
                 @csrf
                 <div class="row m-0">
                     <div class="col-sm-12 col-md-4 col-lg-3">
                         <div class="mb-3">
-                            <input type="text" class="form-control p-3" id="restaurant_name" name="restaurant_name" placeholder="Restaurant Name">
+                            <input type="text" class="form-control p-3" id="restaurant_name" name="restaurant_name" placeholder="Nombre del restaurante">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-3">
                         <div class="mb-3">
-                            <input type="text" class="form-control p-3" id="restaurant_description" name="restaurant_desc" placeholder="Asian, Steak, etc...">
+                            <input type="text" class="form-control p-3" id="restaurant_description" name="restaurant_desc" placeholder="Asiática, Parrilla, etc...">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-3">
@@ -126,17 +127,18 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-3">
-                        <button type="submit" class="btn text-light w-100 p-3" style="background-color: #ed3b27">Check Availability</button>
+                        <button type="submit" class="btn text-light w-100 p-3" style="background-color: #ed3b27">Ver disponibilidad</button>
                     </div>
                 </div>
             </form>
         </div>
-        {{-- PARALAX --}}
+
+        {{-- PARALLAX --}}
         <div class="paralax mt-5">
             <div class="row m-0">
                 <div class="col-sm-12 col-md-6 col-lg-3 text-center rounded-4 p-4" >
                     <img src="{{asset('storage/images/customer/home/order.png')}}" alt="">
-                    <h3>Order</h3>
+                    <h3>Pedir</h3>
                     <p class="my-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis repellendus aspernatur voluptatem ex ea minima.</p>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-3 text-center rounded-4 p-4">
@@ -146,17 +148,18 @@
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-3 text-center rounded-4 p-4">
                     <img src="{{asset('storage/images/customer/home/meet.png')}}" alt="">
-                    <h3>Confirm</h3>
+                    <h3>Confirmar</h3>
                     <p class="my-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis repellendus aspernatur voluptatem ex ea minima.</p>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-3 text-center rounded-4 p-4">
                     <img src="{{asset('storage/images/customer/home/dine.png')}}" alt="">
-                    <h3>Dine</h3>
+                    <h3>Cenar</h3>
                     <p class="my-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis repellendus aspernatur voluptatem ex ea minima.</p>
                 </div>
             </div>
         </div>
-        {{-- JUMBOTRON --}}
+
+        {{-- SEGUNDO JUMBOTRON --}}
         <div class="jumbotron banner row m-0 w-100 mb-5">
             <div class="col-md-12 col-lg-6 d-flex justify-content-end align-items-center">
                 <img src="{{asset('storage/images/customer/banner2.png')}}" width="100%" alt="">
@@ -164,73 +167,71 @@
             <div class="col-md-12 col-lg-6 d-flex justify-content-end align-items-center" >
                 <div class="right_content">
 
-                    {{-- BANNER TEXT --}}
+                    {{-- TEXTO DEL BANNER --}}
                     <div class="banner_text">
-                        <p class="title text-start " style="font-family: helvetica_bold">Restaurant Owner?</p>
-                        <p class="title text-start " style="font-family: helvetica_bold;margin-top:-20px;">Open Table now!</p>
+                        <p class="title text-start " style="font-family: helvetica_bold">¿Eres dueño de un restaurante?</p>
+                        <p class="title text-start " style="font-family: helvetica_bold;margin-top:-20px;">¡Abre tu mesa ahora!</p>
                         <p class="subtitle text-start " style="font-family: helvetica_regular;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dignissimos nobis ad sequi aliquid impedit iusto officia ea enim? Cum eius dolore labore tempore assumenda, quia quas cupiditate? Officia, voluptatum.</p>
                     </div>
 
-                    {{-- BUTTON --}}
+                    {{-- BOTÓN --}}
                     <div class="d-flex justify-content-start mt-4">
                         <a href="/customer/register_restaurant" style="text-decoration: none">
-                            <div class="btn me-2" style="background-color: #ed3b27;color:white;">Create Restaurant Account</div>
+                            <div class="btn me-2" style="background-color: #ed3b27;color:white;">Crear cuenta de restaurante</div>
                         </a>
                     </div>
-
 
                 </div>
             </div>
         </div>
     </div>
+
+    {{-- SECCIÓN DE CONTACTO Y MENÚ --}}
     <div class="about_us bg-dark text-light">
         <div class="container">
             <div class="py-5">
                 <div class="row m-0">
                     <div class="col">
-                        <p class="m-0" style="font-size: 1.5em;font-family: helvetica_regular;">Contacts</p>
+                        <p class="m-0" style="font-size: 1.5em;font-family: helvetica_regular;">Contactos</p>
                         <p class="mt-3" style="color: rgb(200, 200, 200);">
-                            Address : <br>
+                            Dirección : <br>
                             Jl. Ngagel Jaya Tengah No.73-77, Baratajaya, Kec. Gubeng, Kota SBY, Jawa Timur 60284
                             <br><br>
-                            Phone : <br>
+                            Teléfonos : <br>
                             ISTTS - 082122907788 <br>
                             Albertus Marco - 0817305455 <br>
                             Andrew Anderson - 081298771483 <br>
                             Antonio Christopher - 085755115331 <br>
                             Ian William - 089674436016 <br>
-
                         </p>
                     </div>
                     <div class="col">
-                        <p class="m-0" style="font-size: 1.5em;font-family: helvetica_regular;">Menu</p>
+                        <p class="m-0" style="font-size: 1.5em;font-family: helvetica_regular;">Menú</p>
                         <div class="mt-3">
-                            <p><span class="navigation">Home</span> </p>
-                            <p><span class="navigation">Search</span> </p>
-                            <p><span class="navigation">Favorite</span> </p>
-                            <p><span class="navigation">History</span> </p>
-                            <p><span class="navigation">Profile</span> </p>
-
+                            <p><span class="navigation">Inicio</span> </p>
+                            <p><span class="navigation">Buscar</span> </p>
+                            <p><span class="navigation">Favoritos</span> </p>
+                            <p><span class="navigation">Historial</span> </p>
+                            <p><span class="navigation">Perfil</span> </p>
                         </div>
                     </div>
                     <div class="col-6 d-none d-md-block">
-                        <p class="m-0" style="font-size: 1.5em;font-family: helvetica_regular;">Reviews</p>
+                        <p class="m-0" style="font-size: 1.5em;font-family: helvetica_regular;">Opiniones</p>
                         <form class="mt-3" action="">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control p-3" placeholder="Please kindly review our service :)">
-                                <button type="submit" class="btn text-light p-3" style="background-color: #ed3b27">Submit Review</button>
+                                <input type="text" class="form-control p-3" placeholder="Por favor déjanos tu opinión :)">
+                                <button type="submit" class="btn text-light p-3" style="background-color: #ed3b27">Enviar Opinión</button>
                             </div>
                         </form>
-
                         <p class="my-1" style="color: rgb(200, 200, 200);">
-                            If you want to know more about our developer. <a href="">Click me!</a>
+                            Si deseas saber más sobre nuestros desarrolladores. <a href="">¡Haz clic aquí!</a>
                         </p>
                     </div>
                 </div>
             </div>
             <div class="copyright text-center">
                 <p class="m-0 py-3" style="color: rgb(200, 200, 200);">
-                    &copy; 2022. Institut Sains dan Teknologi Terpadu Surabaya
+                    &copy; 2022. Instituto de Ciencia y Tecnología Integrado de Surabaya
                 </p>
             </div>
         </div>
@@ -241,8 +242,8 @@
 
     <script>
         $(document).ready(function(){
-            console.log('Welcome Customer!');
-
+            console.log('¡Bienvenido Cliente!');
         });
     </script>
 @endsection
+

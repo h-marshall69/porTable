@@ -1,17 +1,17 @@
 {{--
-    LAYOUT YIELDS :
+    RENDERS DE LAYOUT:
 
-    A. HTML HEAD :
-    1.  pagename : nama halaman ini (you dont say)
-    2.  custom_css : jika butuh import custom css yang dibuat sendiri
-    3.  dependencies : jika butuh import dependencies khusus page ini cth bootstrap, jquery
+    A. HTML HEAD:
+    1.  pagename: nombre de esta página (no hace falta decirlo)
+    2.  custom_css: si se necesita importar CSS personalizado
+    3.  dependencies: si se necesitan importar dependencias específicas para esta página, ej. bootstrap, jquery
 
-    B. HTML BODY :
-    4.  header : untuk konten" header cth navbar, alert, error dsb
-    5.  content : konten" utama halaman ini
+    B. HTML BODY:
+    4.  header: para contenido del encabezado como navbar, alertas, errores, etc.
+    5.  content: contenido principal de esta página
     6.  footer
 
-    C. OUTSIDE HTML BODY :
+    C. FUERA DEL HTML BODY:
     7.  js_script
 
 --}}
@@ -40,90 +40,92 @@
 @section('content')
 @include("partial.flashMessage")
 <div class="container">
-        {{-- NAVBAR --}}
+        {{-- BARRA DE NAVEGACIÓN --}}
         @include('customer.partial.navbar')
-        {{-- FORM --}}
+        {{-- FORMULARIO --}}
         <div class="row m-0">
             <div class="col-sm-12 col-lg-8 bg-dark text-light px-4 py-3 overflow-auto" style="height: calc(100vh - 80px)">
                 <div class="head mb-2">
-                        <h3 style="font-family: helvetica_bold;">Terms and Conditions</h3>
+                        <h3 style="font-family: helvetica_bold;">Términos y Condiciones</h3>
                         <p class="m-0 text-secondary">
-                            What’s covered in these terms We know it’s tempting to skip these Terms of Service, but it’s important to establish what you can expect from us as you use PorTable services, and what we expect from you.
+                            Qué cubren estos términos: Sabemos que es tentador saltarse estos Términos de Servicio, pero es importante establecer qué puedes esperar de nosotros al usar los servicios de PorTable, y qué esperamos nosotros de ti.
                         </p>
                 </div>
 
                 <div class="subsection mb-2">
-                    <h4>(1) About these terms</h4>
+                    <h4>(1) Sobre estos términos</h4>
                     <p style="font-size: 0.9em">
-                        By law, you have certain rights that can’t be limited by a contract like these terms of service. These terms are in no way intended to restrict those rights.
-                        These terms describe the relationship between you and Google. They don’t create any legal rights for other people or organizations, even if others benefit from that relationship under these terms
-                        We want to make these terms easy to understand, so we’ve used examples from our services. But not all services mentioned may be available in your country.
-                        If these terms conflict with the service-specific additional terms, the additional terms will govern for that service.
-                        If it turns out that a particular term is not valid or enforceable, this will not affect any other terms.
-                        If you don’t follow these terms or the service-specific additional terms, and we don’t take action right away, that doesn’t mean we’re giving up any rights that we may have, such as taking action in the future.
-                        We may update these terms and service-specific additional terms (1) to reflect changes in our services or how we do business — for example, when we add new services, features, technologies, pricing, or benefits (or remove old ones), (2) for legal, regulatory, or security reasons, or (3) to prevent abuse or harm.
-                        If we materially change these terms or service-specific additional terms, we’ll provide you with reasonable advance notice and the opportunity to review the changes, except (1) when we launch a new service or feature, or (2) in urgent situations, such as preventing ongoing abuse or responding to legal requirements. If you don’t agree to the new terms, you should remove your content and stop using the services. You can also end your relationship with us at any time by closing your Google Account.
+                        Por ley, tienes ciertos derechos que no pueden ser limitados por un contrato como estos términos de servicio. Estos términos no pretenden restringir esos derechos.
+                        Estos términos describen la relación entre tú y Google. No crean derechos legales para otras personas u organizaciones, incluso si otros se benefician de esa relación bajo estos términos.
+                        Queremos que estos términos sean fáciles de entender, por eso hemos usado ejemplos de nuestros servicios. Pero no todos los servicios mencionados pueden estar disponibles en tu país.
+                        Si estos términos entran en conflicto con términos adicionales específicos de un servicio, prevalecerán los términos adicionales para ese servicio.
+                        Si se determina que un término en particular no es válido o ejecutable, esto no afectará a los demás términos.
+                        Si no cumples con estos términos o los términos adicionales específicos del servicio, y no tomamos medidas de inmediato, no significa que renunciamos a ningún derecho, como tomar medidas más adelante.
+                        Podemos actualizar estos términos y los términos adicionales específicos del servicio (1) para reflejar cambios en nuestros servicios o cómo hacemos negocios (por ejemplo, cuando agregamos nuevos servicios, características, tecnologías, precios o beneficios, o eliminamos otros), (2) por razones legales, reglamentarias o de seguridad, o (3) para prevenir abusos o daños.
+                        Si realizamos cambios materiales en estos términos o en los términos adicionales, te avisaremos con antelación razonable y te daremos la oportunidad de revisarlos, excepto (1) cuando lancemos un nuevo servicio o función, o (2) en situaciones urgentes, como prevenir abusos o cumplir con requisitos legales. Si no estás de acuerdo con los nuevos términos, deberías eliminar tu contenido y dejar de usar los servicios. También puedes terminar tu relación con nosotros en cualquier momento cerrando tu cuenta de Google.
                     </p>
                 </div>
                 <div class="subsection mb-2">
-                    <h4>(2) For business users and organizations only</h4>
+                    <h4>(2) Solo para usuarios empresariales y organizaciones</h4>
                     <p style="font-size: 0.9em">
-                        To the extent allowed by applicable law, you’ll indemnify Google and its directors, officers, employees, and contractors for any third-party legal proceedings (including actions by government authorities) arising out of or relating to your unlawful use of the services or violation of these terms or service-specific additional terms. This indemnity covers any liability or expense arising from claims, losses, damages, judgments, fines, litigation costs, and legal fees.
-                        If you’re legally exempt from certain responsibilities, including indemnification, then those responsibilities don’t apply to you under these terms. For example, the United Nations enjoys certain immunities from legal obligations and these terms don’t override those immunities.
-                        Google won’t be responsible for the following liabilities:
-                        loss of profits, revenues, business opportunities, goodwill, or anticipated savings
-                        indirect or consequential loss
-                        punitive damages
-                        Google’s total liability arising out of or relating to these terms is limited to the greater of (1) US$500 or (2) 125% of the fees that you paid to use the relevant services in the 12 months before the breach
-                        Taking action in case of problems
-                        Before taking action as described below, we’ll provide you with advance notice when reasonably possible, describe the reason for our action, and give you an opportunity to fix the problem, unless we reasonably believe that doing so would:
-                        cause harm or liability to a user, third party, or Google
-                        violate the law or a legal enforcement authority’s order
-                        compromise an investigation
-                        compromise the operation, integrity, or security of our services
-                        Removing your content
-                        If we reasonably believe that any of your content (1) breaches these terms, service-specific additional terms or policies, (2) violates applicable law, or (3) could harm our users, third parties, or Google, then we reserve the right to take down some or all of that content in accordance with applicable law. Examples include child pornography, content that facilitates human trafficking or harassment, terrorist content, and content that infringes someone else’s intellectual property rights.
+                        En la medida permitida por la ley aplicable, indemnizarás a Google y sus directores, empleados y contratistas por cualquier procedimiento legal de terceros (incluidas acciones de autoridades gubernamentales) derivadas de tu uso ilegal de los servicios o violación de estos términos o términos adicionales. Esta indemnización cubre cualquier responsabilidad o gasto derivado de reclamaciones, pérdidas, daños, sentencias, multas, costos de litigio y honorarios legales.
+                        Si estás legalmente exento de ciertas responsabilidades, incluida la indemnización, entonces estas no se aplican a ti bajo estos términos. Por ejemplo, las Naciones Unidas gozan de ciertas inmunidades legales y estos términos no anulan esas inmunidades.
+                        Google no será responsable por:
+                        - pérdida de beneficios, ingresos, oportunidades comerciales, fondo de comercio o ahorros anticipados
+                        - pérdida indirecta o consecuente
+                        - daños punitivos
+                        La responsabilidad total de Google derivada de estos términos se limita a lo mayor entre (1) US$500 o (2) 125% de las tarifas que hayas pagado por los servicios relevantes en los 12 meses anteriores a la infracción.
+
+                        Tomar acción en caso de problemas
+                        Antes de actuar según se describe más abajo, te daremos un aviso previo razonable, describiremos la razón de la acción y te daremos la oportunidad de solucionar el problema, a menos que razonablemente creamos que hacerlo:
+                        - causaría daño o responsabilidad a un usuario, tercero o Google
+                        - violaría la ley o una orden de una autoridad legal
+                        - comprometería una investigación
+                        - comprometería la operación, integridad o seguridad de nuestros servicios
+
+                        Eliminación de tu contenido
+                        Si razonablemente creemos que tu contenido (1) infringe estos términos, términos adicionales o políticas, (2) viola la ley aplicable, o (3) podría dañar a nuestros usuarios, terceros o a Google, entonces nos reservamos el derecho de eliminar parte o todo ese contenido conforme a la ley. Ejemplos incluyen pornografía infantil, contenido que facilita trata de personas o acoso, contenido terrorista, e infracciones a derechos de propiedad intelectual.
                     </p>
                 </div>
                 <div class="subsection mb-2">
-                    <h4>(3) Content in PorTable</h4>
+                    <h4>(3) Contenido en PorTable</h4>
                     <p style="font-size: 0.9em">
-                        Your content
-                        Some of our services give you the opportunity to make your content publicly available — for example, you might post a product or restaurant review that you wrote, or you might upload a blog post that you created.
-                        See the Permission to use your content section for more about your rights in your content, and how your content is used in our services
-                        See the Removing your content section to learn why and how we might remove user-generated content from our services
-                        If you think someone is infringing your intellectual property rights, you can send us notice of the infringement and we’ll take appropriate action. For example, we suspend or close the Google Accounts of repeat copyright infringers as described in our Copyright Help Center.
+                        Tu contenido
+                        Algunos de nuestros servicios te permiten hacer público tu contenido, por ejemplo, podrías publicar una reseña de un producto o restaurante que escribiste, o subir una entrada de blog que creaste.
+                        Consulta la sección Permiso para usar tu contenido para más información sobre tus derechos y cómo se usa tu contenido.
+                        Consulta la sección Eliminación de tu contenido para saber por qué y cómo podríamos eliminar contenido generado por el usuario.
+                        Si crees que alguien está infringiendo tus derechos de propiedad intelectual, puedes enviarnos un aviso de infracción y tomaremos las medidas adecuadas. Por ejemplo, suspendemos o cerramos las cuentas de Google de infractores reincidentes, como se describe en nuestro Centro de ayuda de derechos de autor.
                     </p>
                 </div>
-                {{-- CHECK --}}
+                {{-- ACEPTACIÓN --}}
                 <hr>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1" onclick="toggleCheckbox()">
-                    <label class="form-check-label" for="exampleCheck1">I have read and agree with PorTable's Terms and Agreements</label>
+                    <label class="form-check-label" for="exampleCheck1">He leído y acepto los Términos y Condiciones de PorTable</label>
                 </div>
             </div>
             <div class="col-sm-12 col-lg-4 px-4 py-3 overflow-auto" style="height: calc(100vh - 80px)">
                 <div class="text-center">
-                    <h3 style="font-family: helvetica_bold;">Restaurant Details</h3>
+                    <h3 style="font-family: helvetica_bold;">Detalles del Restaurante</h3>
                 </div>
-                {{-- FORM --}}
+                {{-- FORMULARIO --}}
                 <form action="/customer/register_restaurant/do_register" method="POST" enctype="multipart/form-data">
                     @csrf
-                    {{-- NAME --}}
+                    {{-- NOMBRE --}}
                     <div class="mb-3">
-                        <label class="form-label">Restaurant name</label>
-                        <input type="text" class="form-control" placeholder="Input your restaurant fullname here..." name="full_name" value="{{old('full_name')}}">
+                        <label class="form-label">Nombre del restaurante</label>
+                        <input type="text" class="form-control" placeholder="Escribe el nombre completo de tu restaurante..." name="full_name" value="{{old('full_name')}}">
 
                         @error('full_name')
                             @include('partial.validationMessage')
                         @enderror
                     </div>
-                    {{-- PHONE ADDRESS --}}
+                    {{-- TELÉFONO Y DIRECCIÓN --}}
                     <div class="row m-0">
                         <div class="col ps-0">
                             <div class="mb-3">
-                                <label class="form-label">Address</label>
-                                <input type="text" class="form-control" placeholder="Restaurant address..." name="address" value="{{old('address')}}">
+                                <label class="form-label">Dirección</label>
+                                <input type="text" class="form-control" placeholder="Dirección del restaurante..." name="address" value="{{old('address')}}">
 
                                 @error('address')
                                     @include('partial.validationMessage')
@@ -132,8 +134,8 @@
                         </div>
                         <div class="col pe-0">
                             <div class="mb-3">
-                                <label class="form-label">Phone</label>
-                                <input type="text" class="form-control" placeholder="Phone number..." name="phone" value="{{old('phone')}}">
+                                <label class="form-label">Teléfono</label>
+                                <input type="text" class="form-control" placeholder="Número de teléfono..." name="phone" value="{{old('phone')}}">
 
                                 @error('phone')
                                     @include('partial.validationMessage')
@@ -141,27 +143,27 @@
                             </div>
                         </div>
                     </div>
-                    {{-- IMAGE --}}
+                    {{-- IMAGEN --}}
                     <div class="mb-2">
-                        <label class="form-label">Upload restaurant photo(3 files of jpg/png/jpeg): </label>
-                        <input type="file" name="foto[]" id="" class="form-control" multiple>
+                        <label class="form-label">Sube fotos del restaurante (3 archivos jpg/png/jpeg):</label>
+                        <input type="file" name="foto[]" class="form-control" multiple>
                         @error('foto')
                             @include('partial.validationMessage')
                         @enderror
                     </div>
 
-                    {{-- DESCRIPTION --}}
-                    <div class="mb-2">Description</div>
+                    {{-- DESCRIPCIÓN --}}
+                    <div class="mb-2">Descripción</div>
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="description">{{old('description')}}</textarea>
-                        <label for="floatingTextarea2">Description e.g : Asian, Steak, etc</label>
+                        <textarea class="form-control" placeholder="Escribe aquí una descripción" id="floatingTextarea2" style="height: 100px" name="description">{{old('description')}}</textarea>
+                        <label for="floatingTextarea2">Descripción ej: Asiática, Parrilla, etc.</label>
                     </div>
-                    {{-- OPEN TIME, SHIFTS --}}
+                    {{-- HORARIO Y TURNOS --}}
                     <div class="row m-0 mt-2">
                         <div class="col ps-0">
                             <div class="mb-3">
-                                <label class="form-label">Open at</label>
-                                <input type="number" class="form-control" max="23" min="0" placeholder="Time your restaurant open..." name="open_at" value="{{old('open_at')}}">
+                                <label class="form-label">Hora de apertura</label>
+                                <input type="number" class="form-control" max="23" min="0" placeholder="Hora en que abre el restaurante..." name="open_at" value="{{old('open_at')}}">
 
                                 @error('open_at')
                                     @include('partial.validationMessage')
@@ -170,8 +172,8 @@
                         </div>
                         <div class="col pe-0">
                             <div class="mb-3">
-                                <label class="form-label">Shifts</label>
-                                <input type="number" class="form-control" placeholder="Shifts with 1 hour interval..." name="shift" value="{{old('shift')}}">
+                                <label class="form-label">Turnos</label>
+                                <input type="number" class="form-control" placeholder="Cantidad de turnos con intervalos de 1 hora..." name="shift" value="{{old('shift')}}">
 
                                 @error('shift')
                                     @include('partial.validationMessage')
@@ -180,28 +182,18 @@
                         </div>
                     </div>
 
-                    <input class="btn me-2 w-100 mt-2 disabled" id="submit" type="submit" style="background-color: #ed3b27;color:white;" value="Create Restaurant Account">
-                    <div class="text-secondary">* Please check the i have read and agree with PorTable's Terms and Agreements checkbox</div>
+                    <input class="btn me-2 w-100 mt-2 disabled" id="submit" type="submit" style="background-color: #ed3b27;color:white;" value="Crear cuenta del restaurante">
+                    <div class="text-secondary">* Por favor marca la casilla de He leído y acepto los Términos y Condiciones de PorTable</div>
                 </form>
             </div>
         </div>
     </div>
-    {{-- <div class="about_us bg-dark text-light">
-        <div class="container">
-            <div class="copyright text-center">
-                <p class="m-0 py-3" style="color: rgb(200, 200, 200);">
-                    &copy; 2022. Institut Sains dan Teknologi Terpadu Surabaya
-                </p>
-            </div>
-        </div>
-    </div> --}}
 @endsection
 
 @section('js_script')
-
     <script>
         $(document).ready(function(){
-            console.log('Welcome Customer!');
+            console.log('¡Bienvenido Cliente!');
         });
 
         var agree = false;
@@ -215,3 +207,4 @@
         }
     </script>
 @endsection
+

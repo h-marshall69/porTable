@@ -26,7 +26,7 @@ class ImageCount implements Rule
      */
     public function passes($attribute, $value)
     {
-        if($this->total<3){
+        if($this->total<1){
             return false;
         }
 
