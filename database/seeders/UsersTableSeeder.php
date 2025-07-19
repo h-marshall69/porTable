@@ -12,8 +12,8 @@ class UsersTableSeeder extends Seeder
     {
         // Crear usuario admin (rol_id = 3)
         userMigrasi::create([
-            'username' => 'admin',
-            'password' => Hash::make('admin123'),
+            'username' => 'nose',
+            'password' => Hash::make('nose123'),
             'full_name' => 'Administrator',
             'date_of_birth' => '1985-01-01',
             'address' => '123 Admin Street',
@@ -22,13 +22,13 @@ class UsersTableSeeder extends Seeder
             'gender' => 1,
             'balance' => 10000,
             'blocked' => 0,
-            'role_id' => 3, // Admin
+            'role_id' => 2, // Admin
             'verified_at' => now()
         ]);
 
         // Crear usuario cliente (rol_id = 1)
         userMigrasi::create([
-            'username' => 'customer10',
+            'username' => 'customer100',
             'password' => Hash::make('customer123'),
             'full_name' => 'Regular Customer',
             'date_of_birth' => '1995-10-20',
@@ -38,14 +38,14 @@ class UsersTableSeeder extends Seeder
             'gender' => 2,
             'balance' => 1000,
             'blocked' => 0,
-            'role_id' => 1, // Customer
+            'role_id' => 2, // Customer
             'verified_at' => now()
         ]);
 
         // Crear segundo usuario cliente (opcional)
         userMigrasi::create([
-            'username' => 'customer20',
-            'password' => Hash::make('customer456'),
+            'username' => 'customer300',
+            'password' => Hash::make('customer123'),
             'full_name' => 'Premium Customer',
             'date_of_birth' => '1990-07-15',
             'address' => '101 Premium Road',
