@@ -8,23 +8,32 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckUser
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
-     */
     public function handle(Request $request, Closure $next, $role)
     {
-        if (auth()->check()) {
-            if (auth()->user()->role->name == $role && auth()->user()->verified_at != null){
-                return $next($request);
-            }
-            else{
-                // dd(auth()->user()->verified_at);
-            }
-        }
-        abort(403);
+        if (!auth()->check()) {
+        return redirect()->route('login');
+    }
+
+    $user = auth()->user();
+
+    // Carga explícita de la relación
+    if (!$user->relationLoaded('role')) {
+        $user->load('role');
+    }
+
+    // Verifica si la relación existe
+    if (!$user->role) {
+        abort(403, 'Usuario no tiene rol asignado');
+    }
+
+    if ($user->role->name != $role) {
+        abort(403, 'Rol incorrecto para esta área');
+    }
+
+    if ($user->verified_at === null) {
+        return redirect()->route('verification.notice');
+    }
+
+    return $next($request);
     }
 }

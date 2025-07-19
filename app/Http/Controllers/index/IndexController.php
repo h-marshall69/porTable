@@ -75,6 +75,8 @@ class IndexController extends Controller
         $new_user->balance = 0;
         $new_user->blocked = 0;
         $new_user->role_id = 3;
+
+        $new_user->verified_at = now();
         $new_user->save();
 
         // dd(route('verify',$new_user->id));
