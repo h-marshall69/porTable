@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer("gender")->comment("1 laki, 2 perempuan")->default(1);
             $table->integer("balance")->default(0);
             $table->integer("blocked")->comment("0 ngga ke block, 1 ter block")->default(1);
-            $table->integer("role_id",0)->nullable()->comment("1 customer, 2 restaurant, 3 admin");
+            $table->foreignId('role_id')->constrained('roles')->nullable();
             $table->dateTime("verified_at")->nullable();
             $table->timestamps();
             $table->softDeletes();

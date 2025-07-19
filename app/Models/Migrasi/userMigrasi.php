@@ -16,7 +16,8 @@ class userMigrasi extends Authenticatable
 
     public function role()
     {
-        return $this->hasOne(roleMigrasi::class,"id","role_id");
+        //return $this->hasOne(roleMigrasi::class,"id","role_id");
+        return $this->belongsTo(roleMigrasi::class, 'role_id', 'id');
     }
     public function posts()
     {

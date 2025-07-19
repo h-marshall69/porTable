@@ -37,17 +37,12 @@ class IndexController extends Controller
         ];
         if(Auth::attempt($credential)){
             // Check user role
-            if(activeUser()->verified_at == null){
-                return redirect()->back();
-            }
-            else{
-                if(activeUser()->role->name == "Admin"){
-                    return redirect()->route("admin_dashboard");
-                }else if(activeUser()->role->name == "Customer"){
-                    return redirect()->route("customer_home");
-                }else if(activeUser()->role->name == "Restaurant"){
-                    return redirect()->route("restaurant_home");
-                }
+            if(activeUser()->role->name == "Admin"){
+                return redirect()->route("admin_dashboard");
+            }else if(activeUser()->role->name == "Customer"){
+                return redirect()->route("customer_home");
+            }else if(activeUser()->role->name == "Restaurant"){
+                return redirect()->route("restaurant_home");
             }
         }else{
             return redirect()->route("index")->with("errorMessage","User not found!");
@@ -79,13 +74,13 @@ class IndexController extends Controller
         $new_user->gender = 0;
         $new_user->balance = 0;
         $new_user->blocked = 0;
-        $new_user->role_id = 2;
+        $new_user->role_id = 3;
         $new_user->save();
 
         // dd(route('verify',$new_user->id));
 
-        Mail::to($request->email)
-        ->queue(new UserVerifyMail(route('verify',$new_user->id)));
+        //Mail::to($request->email)
+        //->queue(new UserVerifyMail(route('verify',$new_user->id)));
         return redirect()->back();
     }
 

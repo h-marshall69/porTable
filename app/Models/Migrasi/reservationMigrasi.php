@@ -8,16 +8,21 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class reservationMigrasi extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
     protected $table = "reservations";
     protected $primaryKey = "id";
     protected $fillable = [
         'user_id',
         'restaurant_id',
         'table_id',
-        'reservation_date_time'
+        'reservation_date_time',
+        'payment_status'
     ];
+    protected static function newFactory()
+    {
+        return \Database\Factories\Migrasi\ReservationMigrasiFactory::new();
+    }
+
     public function restaurant()
     {
         return $this->hasOne(restaurantMigrasi::class,"id","restaurant_id");

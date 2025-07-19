@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class transactionMigrasi extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
+
     protected $table = "transactions";
     protected $primaryKey = "id";
     protected $fillable = [
@@ -19,6 +19,13 @@ class transactionMigrasi extends Model
         'payment_amount',
         'payment_date_at'
     ];
+
+    // Añade este método
+    protected static function newFactory()
+    {
+        return \Database\Factories\Migrasi\TransactionMigrasiFactory::new();
+    }
+
     public function reservation()
     {
         return $this->hasOne(reservationMigrasi::class,"id","reservation_id");
