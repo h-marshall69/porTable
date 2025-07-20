@@ -157,7 +157,9 @@
                                     <td>{{$user->username}}</td>
                                     <td>{{substr($user->created_at,0,10)}}</td>
                                     <td>Rp. {{$user->balance}},00</td>
-                                    <td>Rp. {{$tempSpending[$key]}}</td>
+
+                                    {{--<td>Rp. {{$tempSpending[$key]}}</td>--}}
+                                    
                                     <td>25/11/2022</td>
                                     <td>
                                         @if ($user->trashed())

@@ -81,18 +81,18 @@
 
                     {{-- BANNER TEXT --}}
                     <div class="banner_text">
-                        <p class="title text-end" style="font-family: helvetica_bold">A New Way</p>
-                        <p class="title text-end" style="font-family: helvetica_bold;margin-top:-20px;">To Order a Table</p>
-                        <p class="subtitle text-end" style="font-family: helvetica_regular;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dignissimos nobis ad sequi aliquid impedit iusto officia ea enim? Cum eius dolore labore tempore assumenda, quia quas cupiditate? Officia, voluptatum.</p>
+                        <p class="title text-end" style="font-family: helvetica_bold">Una nueva forma</p>
+                        <p class="title text-end" style="font-family: helvetica_bold;margin-top:-20px;">De reservar una mesa</p>
+                        <p class="subtitle text-end" style="font-family: helvetica_regular;"> Vive la mejor experiencia culinaria en el corazón de Puno. Platos únicos, atención personalizada y un ambiente inigualable.</p>
                     </div>
 
                     {{-- BUTTON --}}
                     <div class="d-flex justify-content-end mt-4">
                         <a href="{{route('customer_search')}}">
-                            <div class="btn me-2" style="background-color: #ed3b27;color:white;">Explore Restaurant</div>
+                            <div class="btn me-2" style="background-color: #ed3b27;color:white;">Explorar Restaurante</div>
                         </a>
                         <a href="{{route('customer_favorite')}}">
-                            <div class="btn" style="border:1px solid #ed3b27; color: #ed3b27;">Favorite</div>
+                            <div class="btn" style="border:1px solid #ed3b27; color: #ed3b27;">Favoritos</div>
                         </a>
                     </div>
 
@@ -105,19 +105,19 @@
         </div>
         {{-- EASY ACCESS --}}
         <div class="easy-access mt-3 px-5 py-4 rounded-3 bg-dark">
-            <h3 class="text-light" style="font-family: helvetica_bold">Book a Table</h3>
+            <h3 class="text-light" style="font-family: helvetica_bold">Reservar Mesa</h3>
 
             <form class="mt-3" method="POST" action="/customer/checkAvailability">
                 @csrf
                 <div class="row m-0">
                     <div class="col-sm-12 col-md-4 col-lg-3">
                         <div class="mb-3">
-                            <input type="text" class="form-control p-3" id="restaurant_name" name="restaurant_name" placeholder="Restaurant Name">
+                            <input type="text" class="form-control p-3" id="restaurant_name" name="restaurant_name" placeholder="Nombre del Restaurante">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-3">
                         <div class="mb-3">
-                            <input type="text" class="form-control p-3" id="restaurant_description" name="restaurant_desc" placeholder="Asian, Steak, etc...">
+                            <input type="text" class="form-control p-3" id="restaurant_description" name="restaurant_desc" placeholder="Ej. Peruana, Parrilla, etc.">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-3">
@@ -126,7 +126,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-3">
-                        <button type="submit" class="btn text-light w-100 p-3" style="background-color: #ed3b27">Check Availability</button>
+                        <button type="submit" class="btn text-light w-100 p-3" style="background-color: #ed3b27">Disponibilidad</button>
                     </div>
                 </div>
             </form>
@@ -135,24 +135,24 @@
         <div class="paralax mt-5">
             <div class="row m-0">
                 <div class="col-sm-12 col-md-6 col-lg-3 text-center rounded-4 p-4" >
-                    <img src="{{asset('storage/images/customer/home/order.png')}}" alt="">
+                    <img src="{{asset('storage/images/customer/home/order.jpg')}}" alt="">
                     <h3>Order</h3>
-                    <p class="my-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis repellendus aspernatur voluptatem ex ea minima.</p>
+                    <p class="my-2">Realiza tu pedido en línea de forma rápida y sencilla, desde cualquier dispositivo.</p>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-3 text-center rounded-4 p-4">
                     <img src="{{asset('storage/images/customer/home/ticket.png')}}" alt="">
                     <h3>Ticket</h3>
-                    <p class="my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, cumque nesciunt dolorem hic fugit officiis.</p>
+                    <p class="my-2">Recibe tu confirmación de reserva o pedido directamente a tu correo.</p>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-3 text-center rounded-4 p-4">
                     <img src="{{asset('storage/images/customer/home/meet.png')}}" alt="">
                     <h3>Confirm</h3>
-                    <p class="my-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis repellendus aspernatur voluptatem ex ea minima.</p>
+                    <p class="my-2">Confirma tu asistencia o modifica tu pedido con total flexibilidad.</p>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-3 text-center rounded-4 p-4">
                     <img src="{{asset('storage/images/customer/home/dine.png')}}" alt="">
                     <h3>Dine</h3>
-                    <p class="my-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis repellendus aspernatur voluptatem ex ea minima.</p>
+                    <p class="my-2">Disfruta de una experiencia gastronómica inolvidable en nuestro restaurante.</p>
                 </div>
             </div>
         </div>
@@ -166,15 +166,15 @@
 
                     {{-- BANNER TEXT --}}
                     <div class="banner_text">
-                        <p class="title text-start " style="font-family: helvetica_bold">Restaurant Owner?</p>
-                        <p class="title text-start " style="font-family: helvetica_bold;margin-top:-20px;">Open Table now!</p>
-                        <p class="subtitle text-start " style="font-family: helvetica_regular;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dignissimos nobis ad sequi aliquid impedit iusto officia ea enim? Cum eius dolore labore tempore assumenda, quia quas cupiditate? Officia, voluptatum.</p>
+                        <p class="title text-start " style="font-family: helvetica_bold">¿Eres dueño de un restaurante?</p>
+                        <p class="title text-start " style="font-family: helvetica_bold;margin-top:-20px;">¡Abre tus reservas ahora!</p>
+                        <p class="subtitle text-start " style="font-family: helvetica_regular;">Registra tu restaurante y comienza a recibir reservas online de forma automatizada y eficiente.</p>
                     </div>
 
                     {{-- BUTTON --}}
                     <div class="d-flex justify-content-start mt-4">
                         <a href="/customer/register_restaurant" style="text-decoration: none">
-                            <div class="btn me-2" style="background-color: #ed3b27;color:white;">Create Restaurant Account</div>
+                            <div class="btn me-2" style="background-color: #ed3b27;color:white;">Crear cuenta de restaurante</div>
                         </a>
                     </div>
 
@@ -188,7 +188,7 @@
             <div class="py-5">
                 <div class="row m-0">
                     <div class="col">
-                        <p class="m-0" style="font-size: 1.5em;font-family: helvetica_regular;">Contacts</p>
+                        <p class="m-0" style="font-size: 1.5em;font-family: helvetica_regular;">Contactos</p>
                         <p class="mt-3" style="color: rgb(200, 200, 200);">
                             Address : <br>
                             Jl. Ngagel Jaya Tengah No.73-77, Baratajaya, Kec. Gubeng, Kota SBY, Jawa Timur 60284
@@ -205,25 +205,25 @@
                     <div class="col">
                         <p class="m-0" style="font-size: 1.5em;font-family: helvetica_regular;">Menu</p>
                         <div class="mt-3">
-                            <p><span class="navigation">Home</span> </p>
-                            <p><span class="navigation">Search</span> </p>
-                            <p><span class="navigation">Favorite</span> </p>
-                            <p><span class="navigation">History</span> </p>
-                            <p><span class="navigation">Profile</span> </p>
+                            <p><span class="navigation">Inicio</span> </p>
+                            <p><span class="navigation">Buscar</span> </p>
+                            <p><span class="navigation">Favoritos</span> </p>
+                            <p><span class="navigation">Historial</span> </p>
+                            <p><span class="navigation">Perfil</span> </p>
 
                         </div>
                     </div>
                     <div class="col-6 d-none d-md-block">
-                        <p class="m-0" style="font-size: 1.5em;font-family: helvetica_regular;">Reviews</p>
+                        <p class="m-0" style="font-size: 1.5em;font-family: helvetica_regular;">Reseñas</p>
                         <form class="mt-3" action="">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control p-3" placeholder="Please kindly review our service :)">
-                                <button type="submit" class="btn text-light p-3" style="background-color: #ed3b27">Submit Review</button>
+                                <input type="text" class="form-control p-3" placeholder="Deja tu opinión sobre nuestro servicio :)">
+                                <button type="submit" class="btn text-light p-3" style="background-color: #ed3b27">Enviar Reseña</button>
                             </div>
                         </form>
 
                         <p class="my-1" style="color: rgb(200, 200, 200);">
-                            If you want to know more about our developer. <a href="">Click me!</a>
+                            ¿Quieres conocer más sobre nuestros desarrolladores? <a href="">¡Haz clic aquí!</a>
                         </p>
                     </div>
                 </div>

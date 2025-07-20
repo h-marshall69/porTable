@@ -8,7 +8,7 @@ PorTable permite a los usuarios reservar mesas en restaurantes y está diseñado
 
 ### Enlaces del Proyecto
 - **Diseño UI/UX**: [Dribbble - Felic Studio](https://dribbble.com/felic-studio)
-- **Demo en Vivo**: [http://3.144.10.202:8000/index](http://3.144.10.202:8000/index)
+- **Demo en Vivo**: [http://3.142.136.76:8000/index](http://3.142.136.76:8000/index)
 
 ---
 
@@ -129,10 +129,10 @@ PorTable permite a los usuarios reservar mesas en restaurantes y está diseñado
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/TU_USUARIO/PorTable.git
+git clone https://github.com/h-marshall69/porTable
 
 # Navegar al directorio del proyecto
-cd PorTable
+cd porTable
 ```
 
 ### 2. Instalación de Dependencias
