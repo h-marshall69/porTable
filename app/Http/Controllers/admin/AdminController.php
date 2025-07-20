@@ -286,10 +286,9 @@ class AdminController extends Controller
             return redirect()->back()->with('pesan','Error');
         }
     }
-    // public function clearFilter(Request $request)
-    // {
-    //     $keyword = $request->keyword;
-    //     $keyword = '';
-    //     return redirect()->route('admin_customerlist',compact('keyword'));
-    // }
+    public function masterAnalytics(Request $request)
+    {
+        $currPage = "analytics";
+        return view('admin.admin_analytics',compact('currPage'));
+    }
 }

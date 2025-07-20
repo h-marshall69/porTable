@@ -34,6 +34,13 @@
             </p>
         </a>
 
+        <a href="/admin/analytics"  style="text-decoration: none;color:white;">
+            <p class="btn_orange p-2 d-flex">
+                <img class="me-2" src="{{asset('images/admin/logout.png')}}" alt="" width="25px">
+                <span class="d-none d-md-block">Analytics</span>
+            </p>
+        </a>
+
         <a href="/logout"  style="text-decoration: none;color:white;">
             <p class="btn_orange p-2 d-flex">
                 <img class="me-2" src="{{asset('images/admin/logout.png')}}" alt="" width="25px">

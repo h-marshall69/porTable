@@ -11,75 +11,6 @@ use App\Models\Migrasi\userMigrasi;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 
-// PENJELASAN FLOW PorTable
-/*
-    PorTable Application Flow :
-    1. User register & login to PorTable
-        Tipe User :
-        a. Customer
-        b. Restaurant
-        c. Admin
-
-        Note :
-        - ketika register pada index maka user akan didaftarkan default sebagai akun customer,
-          untuk membuat akun restoran maka customer perlu mendaftarkan
-          kembali akun dan melengkapi syarat & ketentuan
-        - akun admin bawaan adalah 1 buah akun, untuk membuat akun admin lainnya harus lewat
-          akun admin lainnya atau langsung dri Database XD
-
-    2. Customer's Features :
-
-        <> Proposal :                                                           STATUS
-        - Browse restoran (catalog)                                             -- DONE
-        - Browse rekomendasi                                                    -- DONE
-        - Mencari restoran (searchbar)                                          -- DONE
-        - Filter restoran (Review, harga, meja tersedia)                        -- DONE
-        - Membayar dengan e-money atau e-banking (API midtrans/ipayment)        -- DONE
-        - Top-up e-money                                                        --
-        - Favorite restoran                                                     -- DONE
-        - Melakukan reservasi (Book table yang available)                       -- DONE
-        - Melihat sejarah reservasi (Transaction History)                       -- DONE
-        - Melihat reservasi saat ini (Active Transaction)                       -- DONE
-        - Membatalkan reservasi saat ini (Uang reservasi tidak dikembalikan)    -- DONE
-        - CRUD review kepada restoran yang sudah pernah direservasi             --
-
-        <> Tambahan :
-        - Register akun restoran                                                -- DONE
-        - Page notifikasi                                                       -- DONE
-
-    3. Restaurant's Features :
-
-        <> Proposal :                                                           STATUS
-        - Melihat reservasi dan transaksi                                       --
-        - Mengganti jumlah atau layout dari meja                                -- DONE
-        - Menambah atau mengganti deskripsi restoran                            -- DONE
-        - Menambah atau mengganti waktu aktif restoran                          -- DONE
-        - Mengganti jumlah yang harus dibayar di aplikasi                       -- DONE
-        - Menandai review spam agar di review oleh admin                        -- DONE
-
-        <> Tambahan :
-        - Melihat dashboard/ statistic restoran                                 --
-        - Edit status reservasi saat ini (meja available/ tidak)                --
-
-    4. Admin's Features :
-
-        <> Proposal :                                                           STATUS
-        - CRUD akun restoran                                                    --
-        - CRUD akun pelanggan                                                   -- DONE
-        - Ban akun restoran                                                     -- DONE
-        - Ban akun pelanggan                                                    -- DONE
-        - Melihat semua transaksi                                               --
-        - Melihat semua review di restoran                                      --
-        - Mereview review spam restoran                                         --
-        - Menambah review pada restoran                                         --
-        - Menghilangkan review pada restoran                                    --
-        - Membatalkan reservasi pelanggan                                       --
-
-        <> Tambahan :
-        - Dashboard/ Summary                                                    -- DONE
-        - Developer Post/Notification                                           -- DONE
-*/
-
 Route::middleware(['guest'])->get('/', function () { return redirect()->route("index"); });
 
 Route::get('/logout', [IndexController::class,'logout']);
@@ -123,6 +54,10 @@ Route::prefix('admin')->middleware(['CheckUser:Admin'])->group(function () {
         Route::get('/', [AdminController::class,"masterSettings"]);
         Route::get('/deletePost/{id}', [AdminController::class,"deletePost"]);
         Route::post('addPost',[AdminController::class,"addPost"]);
+    });
+
+    Route::prefix('analytics')->group(function () {
+        Route::get('/', [AdminController::class,"masterAnalytics"]);
     });
 });
 
